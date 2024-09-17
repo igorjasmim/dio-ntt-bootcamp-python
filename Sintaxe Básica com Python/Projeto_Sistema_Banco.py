@@ -1,5 +1,4 @@
-
-
+# Criando um menu de interface com o usuário:
 menu = """
 
 Escolha uma das opções abaixo para realizar uma operação bancária:
@@ -10,16 +9,17 @@ Escolha uma das opções abaixo para realizar uma operação bancária:
 
 => """
 
-saldo = 0
-limite = 500
-extrato = ""
-numero_saques = 0
-LIMITE_SAQUES = 3
+saldo = 0           # iniciando o saldo
+limite = 500        # limite de saque
+extrato = ""        # iniciando o extrato
+numero_saques = 0   # iniciando o número de saques
+LIMITE_SAQUES = 3   # limite de operações de saque
 
 while True:
 
     opcao = input(menu)
 
+    # Opção Depositar:
     if opcao == "1":
         valor = float(input("Informe o valor do depósito: "))
 
@@ -29,7 +29,7 @@ while True:
 
         else:
             print("Operação falhou! O valor informado é inválido.")
-
+    # Opção Sacar:
     elif opcao == "2":
         valor = float(input("Informe o valor do saque: "))
 
@@ -50,14 +50,17 @@ while True:
         else:
             print("Operação falhou! O valor informado é inválido.")
 
+    # Opção Extrato:
     elif opcao == "3":
         print(" EXTRATO ".center(50,'#'))
         print("Não foram realizadas movimentações." if not extrato else extrato)
         print(f"\nSaldo: R$ {saldo:.2f}".ljust(50))
         print(" FIM EXTRATO ".center(50,'#'))
 
+    # Opção Sair:
     elif opcao == "4":
         break
-
+    
+    # Opção caso digite algo diferente das operações:
     else:
         print("Operação inválida, por favor selecione novamente a operação desejada.")
